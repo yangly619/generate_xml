@@ -38,15 +38,19 @@ for table in result:
     curs.execute("select * from " + table_name + " limit 30;")
     table_content = curs.fetchall()
     table_content = list(table_content)
-    curs.execute("select COLUMN_NAME from information_schema.COLUMNS where table_name = "+"'" +table_name+"' and table_schema ='proyectoBD';")
+    curs.execute("select COLUMN_NAME from information_schema.COLUMNS where table_name = "\
+                 +"'" +table_name+"' and table_schema ='proyectoBD';")
     columns = curs.fetchall()
     attributes = list(columns)
     row = 0
+
+
 
     while (row < len(table_content)):
         element = doc.createElement("Element")
         tables.appendChild(element)
         col = 0
+
         while (col < len(attributes)):
 
             attribute = str(attributes[col]).split("'")[1]

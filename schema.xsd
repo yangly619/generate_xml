@@ -1,115 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-  <xs:element name="root">
+  <xs:element name="pacientes">
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="enfermedades_raras"/>
-        <xs:element ref="enfermedades_raras_has_tratamiento"/>
-        <xs:element ref="gen"/>
-        <xs:element ref="paciente"/>
-        <xs:element ref="paciente_has_enfermedades_raras"/>
-        <xs:element ref="proteina"/>
-        <xs:element ref="tratamiento"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="enfermedades_raras">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="Element"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="enfermedades_raras_has_tratamiento">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="Element"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="gen">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="Element"/>
+        <xs:element maxOccurs="unbounded" ref="paciente"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="paciente">
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="Element"/>
+        <xs:element ref="DNI"/>
+        <xs:element ref="EDAD"/>
+        <xs:element ref="SEXO"/>
+        <xs:element ref="CIUDAD"/>
+        <xs:element ref="FECHA_INGRESO"/>
+        <xs:element ref="NOMBRE"/>
+        <xs:element ref="enfermedad"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="paciente_has_enfermedades_raras">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="Element"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="proteina">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="Element"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="tratamiento">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="Element"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Element">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:choice minOccurs="0">
-          <xs:element ref="IdENFERM"/>
-          <xs:element ref="idPROTEINA"/>
-          <xs:element ref="idTRATAMIENTO"/>
-          <xs:sequence>
-            <xs:element ref="DNI"/>
-            <xs:element ref="EDAD"/>
-            <xs:element ref="SEXO"/>
-            <xs:element ref="CIUDAD"/>
-            <xs:element ref="FECHA_INGRESO"/>
-          </xs:sequence>
-        </xs:choice>
-        <xs:element minOccurs="0" ref="PACIENTE_DNI"/>
-        <xs:sequence minOccurs="0">
-          <xs:element ref="Enfermedades_Raras_IdENFERM"/>
-          <xs:element ref="Enfermedades_Raras_GEN_idGEN"/>
-        </xs:sequence>
-        <xs:element minOccurs="0" ref="TRATAMIENTO_idTRATAMIENTO"/>
-        <xs:element minOccurs="0" ref="idGEN"/>
-        <xs:choice minOccurs="0" maxOccurs="unbounded">
-          <xs:element ref="DESCRIPCION"/>
-          <xs:element ref="NOMBRE"/>
-        </xs:choice>
-        <xs:element minOccurs="0" ref="LOCALIZACION"/>
-        <xs:element minOccurs="0" ref="ESTRUCTURA"/>
-        <xs:element minOccurs="0" ref="GEN_idGEN"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IdENFERM" type="xs:NCName"/>
-  <xs:element name="idPROTEINA" type="xs:integer"/>
-  <xs:element name="idTRATAMIENTO" type="xs:integer"/>
   <xs:element name="DNI" type="xs:NMTOKEN"/>
   <xs:element name="EDAD" type="xs:integer"/>
   <xs:element name="SEXO" type="xs:NCName"/>
   <xs:element name="CIUDAD" type="xs:NMTOKEN"/>
   <xs:element name="FECHA_INGRESO" type="xs:string"/>
-  <xs:element name="PACIENTE_DNI" type="xs:NMTOKEN"/>
-  <xs:element name="Enfermedades_Raras_IdENFERM" type="xs:NCName"/>
-  <xs:element name="Enfermedades_Raras_GEN_idGEN" type="xs:integer"/>
-  <xs:element name="TRATAMIENTO_idTRATAMIENTO" type="xs:integer"/>
+  <xs:element name="enfermedad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="IdENFERM"/>
+        <xs:element ref="DESCRIPCION"/>
+        <xs:element ref="NOMBRE"/>
+        <xs:element ref="GEN"/>
+        <xs:element minOccurs="0" ref="tratamiento"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IdENFERM" type="xs:NCName"/>
+  <xs:element name="GEN">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="idGEN"/>
+        <xs:element ref="NOMBRE"/>
+        <xs:element ref="LOCALIZAICION"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="proteina"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="idGEN" type="xs:integer"/>
-  <xs:element name="DESCRIPCION" type="xs:NMTOKEN"/>
+  <xs:element name="LOCALIZAICION" type="xs:integer"/>
+  <xs:element name="proteina">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="idPROTEINA"/>
+        <xs:element ref="NOMBRE"/>
+        <xs:element ref="ESTRUCTURA"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="idPROTEINA" type="xs:integer"/>
+  <xs:element name="ESTRUCTURA" type="xs:NCName"/>
+  <xs:element name="tratamiento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="idTRATAMIENTO"/>
+        <xs:element ref="NOMBRE"/>
+        <xs:element ref="DESCRIPCION"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="idTRATAMIENTO" type="xs:integer"/>
   <xs:element name="NOMBRE" type="xs:NMTOKEN"/>
-  <xs:element name="LOCALIZACION" type="xs:integer"/>
-  <xs:element name="ESTRUCTURA" type="xs:NMTOKEN"/>
-  <xs:element name="GEN_idGEN" type="xs:integer"/>
+  <xs:element name="DESCRIPCION" type="xs:NMTOKEN"/>
 </xs:schema>
