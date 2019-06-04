@@ -41,9 +41,9 @@ public class window extends JFrame {
 		panel_top.add(label);
 		query_examples = new JComboBox<String>();
 		query_examples.setBounds(100,40,400,50);
-		query_examples.addItem("Mostrar los genes que codifican la enfermedad \"enf_000003E\":");
-		query_examples.addItem("Mostrar los pacientes que padece la enfermedad \"enf_000003E\":");
-		query_examples.addItem("Mostrar una lista de pacientes mayores de 18 años ordenados por fecha de ingreso");
+		query_examples.addItem("Mostrar los genes que codifican la enfermedad \"enf_45FB9D9\":");
+		query_examples.addItem("Mostrar los pacientes femeninas que padece la enfermedad \"enf_2B0EA74\" y los tratamientos:");
+		query_examples.addItem("Mostrar una lista de pacientes y sus fechas de ingreso que padece la enfermeda \"enf_45FB9D9\":");
 		
 		panel_top.add(query_examples);
 		check = new JCheckBox("Nueva consulta");
@@ -64,17 +64,16 @@ public class window extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!check.isSelected()) {
 					if(query_examples.getSelectedIndex()==0)
-						query = "for $fila in /root/enfermedades_raras/Element\n" + 
-								"where $fila/IdENFERM = \"enf_000003E\"\n" + 
-								"return $fila/GEN_idGEN"	;
+						query = "for $enfermedad in /pacientes/paciente/enfermedad\n" + 
+								"where $enfermedad/IdENFERM = \"enf_45FB9D9\"\n" + 
+								"return ($enfermedad/GEN/idGEN,$enfermedad/GEN/NOMBRE,$enfermedad/GEN/LOCALIZAICION)";
 					 else if (query_examples.getSelectedIndex()==1)
-						 query = "for $paciente in /root/paciente_has_enfermedades_raras/Element\n" + 
-						 		"where $paciente/Enfermedades_Raras_IdENFERM = \"enf_269C113\"\n" + 
-						 		"return $paciente/PACIENTE_DNI";
+						 query = "for $paciente in /pacientes/paciente\n" + 
+						 		"where $paciente/enfermedad/IdENFERM =\"enf_2B0EA74\" and $paciente/SEXO = \"F\"\n" + 
+						 		"return ($paciente/DNI,$paciente/enfermedad/tratamiento/idTRATAMIENTO,$paciente/enfermedad/tratamiento/NOMBRE)";
 					 else if (query_examples.getSelectedIndex()==2)
-						 query = "for $paciente in /root/paciente/Element\n" + 
-						 		"where $paciente/EDAD > 18\n" + 
-						 		"order by $paciente/FECHA_INGRESO descending\n" + 
+						 query = "for $paciente in /pacientes/paciente\n" + 
+						 		"where $paciente/enfermedad/IdENFERM =\"enf_45FB9D9\"\n" + 
 						 		"return ($paciente/DNI,$paciente/FECHA_INGRESO)";
 					//xquery.select(fileString,query);
 				}
