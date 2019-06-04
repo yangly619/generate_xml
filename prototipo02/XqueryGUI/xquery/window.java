@@ -49,7 +49,7 @@ public class window extends JFrame {
 		check = new JCheckBox("Nueva consulta");
 		check.setBounds(100,70,150,50);
 		panel_top.add(check);
-		text_query = new JTextArea("for $s in /root\n" + 
+		text_query = new JTextArea("for $s in /pacientes\n" + 
 				"return $s");
 		text_query.setBounds(105,120,380,110);
 		panel_top.add(text_query);
