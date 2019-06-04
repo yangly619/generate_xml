@@ -40,10 +40,10 @@
     <session id="1181163929">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.2" value="2" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.2" value="3" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -72,11 +72,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/to_xml.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
+            <state relative-caret-position="304">
+              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
               <folding>
                 <element signature="e#153#172#0" expanded="true" />
               </folding>
@@ -84,10 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bd_xml.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17749">
+            <state relative-caret-position="19">
               <caret line="115" column="26" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="26" />
             </state>
           </provider>
@@ -101,6 +101,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -116,6 +119,7 @@
     <option name="width" value="1323" />
     <option name="height" value="837" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -301,20 +305,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bd_xml000.xml" />
     <entry file="file://$PROJECT_DIR$/toXML.py" />
-    <entry file="file://$PROJECT_DIR$/to_xml.py">
+    <entry file="file://$PROJECT_DIR$/bd_xml.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="37" column="58" lean-forward="true" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
-          <folding>
-            <element signature="e#153#172#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="19">
+          <caret line="115" column="26" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bd_xml.xml">
+    <entry file="file://$PROJECT_DIR$/to_xml.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17749">
-          <caret line="115" column="26" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="26" />
+        <state relative-caret-position="304">
+          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding>
+            <element signature="e#153#172#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
